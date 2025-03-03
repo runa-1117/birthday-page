@@ -1,0 +1,116 @@
+body {
+    font-family: Stencil Std, fantasy;
+    text-align: center;
+    background-color: #fbe3e8;
+    overflow: hidden; /* 确保页面无滚动条 */
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+/* 进入页面时显示蛋糕 */
+#intro-screen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#cake {
+    width: 200px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#cake:hover {
+    transform: scale(1.1);
+}
+
+/* 生日页面内容 */
+.container {
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 600px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.small-image {
+    max-width: 50%; /* 进一步缩小图片大小 */
+    height: auto;
+    margin: 15px auto; /* 居中对齐 */
+    display: block;
+    border-radius: 10px; /* 圆角优化 */
+}
+
+
+/* h1 跳出动画 */
+.pop-in {
+    opacity: 0;
+    transform: scale(0.5);
+    animation: popIn 1s ease-out forwards;
+}
+
+.click-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 气球背景动画 */
+.balloon-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.balloon {
+    position: absolute;
+    bottom: -100px;
+    width: 40px;
+    height: 50px;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: float 10s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
