@@ -27,4 +27,3 @@ function createBalloons() {
         container.appendChild(balloon);
     }
 }
-
